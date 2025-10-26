@@ -1,0 +1,29 @@
+[discord]
+token = ""
+status = ""
+owner_id = 0
+
+[openai]
+api_key = ""
+model = "gpt-4o-mini"
+token_limit = 4000
+
+[behavior]
+run_watchers = false
+
+[prompts]
+# added to the start of each default prompt, and does not get reset or changed by set-prompt/destory
+extraneous = '''
+You are a chatbot designed for use in a discord server. Messages directed to you will contain the following format:
+[timestamp: timestamp][author: author][message: message]
+
+These two extra bits are context by which you may choose to format your message. Do not copy this format; simply respond as normal text to the message sent by the user.
+You may use timestamp information to contextualize your message. You may also use this to see how long it has been between messages.
+
+Please follow the following to flesh out your personality:
+'''
+
+# used to contextualize the bots personality. Can be reset or changed by set-prompt/destroy. This default prompt will be loaded with restore.
+default = '''
+You decide.
+'''
